@@ -1,0 +1,72 @@
+{
+  "name": "douyin-crawler",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "electron": "electron .",
+    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && electron .\"",
+    "electron:build": "npm run build && electron-builder"
+  },
+  "main": "electron.cjs",
+  "build": {
+    "appId": "com.douyin.crawler",
+    "productName": "抖音监控系统",
+    "directories": {
+      "output": "dist-new",
+      "buildResources": "build"
+    },
+    "files": [
+      "electron.cjs",
+      "preload.cjs",
+      "dist/**/*"
+    ],
+    "extraResources": [],
+    "asar": true,
+    "win": {
+      "target": ["nsis", "portable"],
+      "icon": "dist/favicon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "dependencies": {
+    "@ant-design/icons": "^6.1.0",
+    "antd": "^6.2.3",
+    "lucide-react": "^0.555.0",
+    "memoize-one": "6.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-virtualized-auto-sizer": "1.0.24",
+    "react-window": "1.8.10"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.17",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.0.0",
+    "@vitest/ui": "^4.0.15",
+    "autoprefixer": "^10.4.22",
+    "concurrently": "^9.2.1",
+    "electron": "^40.1.0",
+    "electron-builder": "^26.7.0",
+    "fast-check": "^4.3.0",
+    "jsdom": "^27.3.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.17",
+    "terser": "^5.44.1",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0",
+    "vitest": "^4.0.15",
+    "wait-on": "^9.0.3"
+  }
+}

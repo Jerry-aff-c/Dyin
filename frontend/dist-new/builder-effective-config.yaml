@@ -1,0 +1,21 @@
+directories:
+  output: dist-new
+  buildResources: build
+appId: com.douyin.crawler
+productName: 抖音监控系统
+files:
+  - filter:
+      - electron.cjs
+      - preload.cjs
+      - dist/**/*
+extraResources: []
+asar: true
+win:
+  target:
+    - nsis
+    - portable
+  icon: dist/favicon.ico
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+electronVersion: 40.1.0
